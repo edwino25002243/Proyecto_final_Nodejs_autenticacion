@@ -1,0 +1,16 @@
+version: '3.8'
+services:
+  db-auth:
+    image: postgres:15
+    container_name: galileo_auth_db
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password123
+      POSTGRES_DB: auth_api_db
+    ports:
+      - "5435:5432"
+    volumes:
+      - pgdata_auth:/var/lib/postgresql/data
+
+volumes:
+  pgdata_auth:
